@@ -1,5 +1,5 @@
 // frontend/app.js
-const API_BASE = "http://localhost:5000"; // change when you deploy
+const API_BASE = "https://mini-bank-jeds.onrender.com"; // change when you deploy
 
 let selectedAccountId = null;
 
