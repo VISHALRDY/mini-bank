@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MiniBank Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="logo">🏦 MiniBank</div>
+      <div class="tagline">Simple Banking Dashboard</div>
+    </header>
+
+    <main class="container">
+      <!-- Top row: Create + Summary -->
+      <section class="grid-two">
+        <section class="card">
+          <h2>Create Account</h2>
+          <form id="createAccountForm">
+            <div class="form-group">
+              <label>Account Holder Name</label>
+              <input type="text" id="holderName" required />
+            </div>
+            <div class="form-group">
+              <label>Initial Deposit</label>
+              <input type="number" id="initialDeposit" min="0" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </form>
+        </section>
+
+        <section class="card summary-card">
+          <h2>Overview</h2>
+          <p class="summary-label">Total Accounts</p>
+          <p class="summary-value" id="summaryAccounts">0</p>
+
+          <p class="summary-label">Total Balance</p>
+          <p class="summary-value">
+            $<span id="summaryBalance">0.00</span>
+          </p>
+        </section>
+      </section>
+
+      <!-- Accounts table -->
+      <section class="card">
+        <div class="card-header-row">
+          <h2>All Accounts</h2>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Holder</th>
+                <th>Account #</th>
+                <th>Balance</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="accountsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Account Details -->
+      <section class="card" id="accountDetailsSection" style="display: none">
+        <h2>Account Details</h2>
+        <div id="accountInfo" class="account-info"></div>
+
+        <div class="flex-row">
+          <form id="depositForm" class="mini-form">
+            <h3>Deposit</h3>
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" id="depositAmount" min="1" required />
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" id="depositDescription" />
+            </div>
+            <button type="submit" class="btn btn-success">Deposit</button>
+          </form>
+
+          <form id="withdrawForm" class="mini-form">
+            <h3>Withdraw</h3>
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" id="withdrawAmount" min="1" required />
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" id="withdrawDescription" />
+            </div>
+            <button type="submit" class="btn btn-danger">Withdraw</button>
+          </form>
+        </div>
+
+        <h3>Transactions</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="transactionsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>MiniBank · Demo project for full-stack portfolio</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
